@@ -1,0 +1,353 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceKit - Plan Your Finances Smarter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing" class="page active">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="nav">
+                    <div class="logo">
+                        <h1>FinanceKit</h1>
+                    </div>
+                    <button class="get-started-btn" onclick="showDashboard()">Get Started</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Plan Your Finances Smarter 💰</h1>
+                    <p class="hero-subtitle">Make informed financial decisions with our comprehensive suite of calculators. Fast, accurate, and completely free.</p>
+                    <div class="hero-buttons">
+                        <button class="cta-btn" onclick="showDashboard()">Start Calculating</button>
+                        <button class="secondary-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="stats-card">
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Calculations Done</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Free</span>
+                            <span class="stat-label">Forever</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Use Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose FinanceKit?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Get instant results with our optimized calculations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Highly Accurate</h3>
+                        <p>Precise calculations you can trust for financial planning</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🆓</div>
+                        <h3>Completely Free</h3>
+                        <p>All tools available at no cost, no hidden fees</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculators Overview -->
+        <section class="calculators">
+            <div class="container">
+                <h2>Financial Calculators</h2>
+                <div class="calculators-grid">
+                    <div class="calc-card" onclick="showDashboard('emi')">
+                        <div class="calc-icon">🏠</div>
+                        <h3>EMI Calculator</h3>
+                        <p>Calculate loan EMI, total interest, and payment breakdown</p>
+                        <div class="calc-features">
+                            <span>Loan Amount</span>
+                            <span>Interest Rate</span>
+                            <span>Tenure</span>
+                        </div>
+                    </div>
+                    <div class="calc-card" onclick="showDashboard('sip')">
+                        <div class="calc-icon">📈</div>
+                        <h3>SIP Calculator</h3>
+                        <p>Plan your mutual fund investments and track wealth growth</p>
+                        <div class="calc-features">
+                            <span>Monthly Investment</span>
+                            <span>Expected Returns</span>
+                            <span>Time Period</span>
+                        </div>
+                    </div>
+                    <div class="calc-card" onclick="showDashboard('fd')">
+                        <div class="calc-icon">🏦</div>
+                        <h3>FD Calculator</h3>
+                        <p>Calculate fixed deposit maturity amount and interest</p>
+                        <div class="calc-features">
+                            <span>Principal Amount</span>
+                            <span>Interest Rate</span>
+                            <span>Time Period</span>
+                        </div>
+                    </div>
+                    <div class="calc-card" onclick="showDashboard('savings')">
+                        <div class="calc-icon">🎯</div>
+                        <h3>Savings Goal</h3>
+                        <p>Determine monthly savings needed to reach your goals</p>
+                        <div class="calc-features">
+                            <span>Target Amount</span>
+                            <span>Time Frame</span>
+                            <span>Expected Returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="page">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>FinanceKit</h2>
+                    <button class="back-btn" onclick="showLanding()">← Back</button>
+                </div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item active" data-calc="emi">
+                        <span class="nav-icon">🏠</span>
+                        EMI Calculator
+                    </button>
+                    <button class="nav-item" data-calc="sip">
+                        <span class="nav-icon">📈</span>
+                        SIP Calculator
+                    </button>
+                    <button class="nav-item" data-calc="fd">
+                        <span class="nav-icon">🏦</span>
+                        FD Calculator
+                    </button>
+                    <button class="nav-item" data-calc="savings">
+                        <span class="nav-icon">🎯</span>
+                        Savings Goal
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- EMI Calculator -->
+                <div id="emi-calc" class="calculator active">
+                    <div class="calc-header">
+                        <h2>EMI Calculator</h2>
+                        <p>Calculate your loan EMI, total interest, and payment breakdown</p>
+                    </div>
+                    <div class="calc-layout">
+                        <div class="inputs-panel">
+                            <div class="input-group">
+                                <label>Loan Amount (₹)</label>
+                                <input type="number" id="emi-amount" placeholder="500000" value="500000">
+                            </div>
+                            <div class="input-group">
+                                <label>Interest Rate (% per annum)</label>
+                                <input type="number" id="emi-rate" placeholder="8.5" value="8.5" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label>Loan Tenure</label>
+                                <div class="tenure-inputs">
+                                    <input type="number" id="emi-tenure" placeholder="20" value="20">
+                                    <select id="emi-tenure-type">
+                                        <option value="years">Years</option>
+                                        <option value="months">Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="calculate-btn" onclick="calculateEMI()">Calculate EMI</button>
+                        </div>
+                        <div class="results-panel">
+                            <div class="result-card">
+                                <h3>EMI Breakdown</h3>
+                                <div class="result-item">
+                                    <span>Monthly EMI</span>
+                                    <span id="emi-result">₹ 41,822</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Total Interest</span>
+                                    <span id="emi-total-interest">₹ 50,37,280</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Total Payment</span>
+                                    <span id="emi-total-payment">₹ 1,00,37,280</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="emi-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIP Calculator -->
+                <div id="sip-calc" class="calculator">
+                    <div class="calc-header">
+                        <h2>SIP Calculator</h2>
+                        <p>Calculate your mutual fund investment returns and wealth growth</p>
+                    </div>
+                    <div class="calc-layout">
+                        <div class="inputs-panel">
+                            <div class="input-group">
+                                <label>Monthly Investment (₹)</label>
+                                <input type="number" id="sip-amount" placeholder="5000" value="5000">
+                            </div>
+                            <div class="input-group">
+                                <label>Expected Return Rate (% per annum)</label>
+                                <input type="number" id="sip-rate" placeholder="12" value="12" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label>Investment Period (Years)</label>
+                                <input type="number" id="sip-period" placeholder="10" value="10">
+                            </div>
+                            <button class="calculate-btn" onclick="calculateSIP()">Calculate SIP</button>
+                        </div>
+                        <div class="results-panel">
+                            <div class="result-card">
+                                <h3>Investment Growth</h3>
+                                <div class="result-item">
+                                    <span>Final Value</span>
+                                    <span id="sip-final-value">₹ 11,61,695</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Total Invested</span>
+                                    <span id="sip-invested">₹ 6,00,000</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Wealth Gain</span>
+                                    <span id="sip-gain">₹ 5,61,695</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="sip-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FD Calculator -->
+                <div id="fd-calc" class="calculator">
+                    <div class="calc-header">
+                        <h2>FD Calculator</h2>
+                        <p>Calculate your fixed deposit maturity amount and interest earned</p>
+                    </div>
+                    <div class="calc-layout">
+                        <div class="inputs-panel">
+                            <div class="input-group">
+                                <label>Principal Amount (₹)</label>
+                                <input type="number" id="fd-principal" placeholder="100000" value="100000">
+                            </div>
+                            <div class="input-group">
+                                <label>Interest Rate (% per annum)</label>
+                                <input type="number" id="fd-rate" placeholder="6.5" value="6.5" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label>Time Period (Years)</label>
+                                <input type="number" id="fd-period" placeholder="5" value="5">
+                            </div>
+                            <button class="calculate-btn" onclick="calculateFD()">Calculate FD</button>
+                        </div>
+                        <div class="results-panel">
+                            <div class="result-card">
+                                <h3>FD Maturity Details</h3>
+                                <div class="result-item">
+                                    <span>Maturity Value</span>
+                                    <span id="fd-maturity">₹ 1,37,279</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Interest Earned</span>
+                                    <span id="fd-interest">₹ 37,279</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Principal Amount</span>
+                                    <span id="fd-principal-display">₹ 1,00,000</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="fd-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savings Goal Calculator -->
+                <div id="savings-calc" class="calculator">
+                    <div class="calc-header">
+                        <h2>Savings Goal Calculator</h2>
+                        <p>Determine how much you need to save monthly to reach your financial goals</p>
+                    </div>
+                    <div class="calc-layout">
+                        <div class="inputs-panel">
+                            <div class="input-group">
+                                <label>Target Amount (₹)</label>
+                                <input type="number" id="savings-target" placeholder="1000000" value="1000000">
+                            </div>
+                            <div class="input-group">
+                                <label>Time Period (Years)</label>
+                                <input type="number" id="savings-period" placeholder="10" value="10">
+                            </div>
+                            <div class="input-group">
+                                <label>Expected Return Rate (% per annum)</label>
+                                <input type="number" id="savings-rate" placeholder="8" value="8" step="0.1">
+                            </div>
+                            <button class="calculate-btn" onclick="calculateSavings()">Calculate Savings</button>
+                        </div>
+                        <div class="results-panel">
+                            <div class="result-card">
+                                <h3>Monthly Savings Required</h3>
+                                <div class="result-item">
+                                    <span>Monthly Savings</span>
+                                    <span id="savings-monthly">₹ 5,466</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Total Invested</span>
+                                    <span id="savings-invested">₹ 6,55,920</span>
+                                </div>
+                                <div class="result-item">
+                                    <span>Interest Earned</span>
+                                    <span id="savings-interest">₹ 3,44,080</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="savings-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
